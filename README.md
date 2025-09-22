@@ -1,6 +1,6 @@
 # Sistema de Gestão de Projetos
 
-Este projeto foi desenvolvido como parte de um trabalho acadêmico para demonstrar o uso da Programação Orientada a Objetos (POO) e o padrão de arquitetura MVC em Java, integrado a um banco de dados Oracle.
+Este projeto foi desenvolvido para demonstrar o uso da Programação Orientada a Objetos (POO) e o padrão de arquitetura MVC em Java, integrado a um banco de dados Oracle.
 
 ---
 
