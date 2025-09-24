@@ -1,14 +1,9 @@
-
 # Gradle
+/build/
 .gradle/
-build/
-!gradle/wrapper/gradle-wrapper.jar
 
 # IDEs
+/.idea/
 *.iml
-.idea/
-.vscode/
-
-# Sistema
-*.log
-*.tmp
+/out/
+/bin/

@@ -1,20 +1,37 @@
 package br.com.sgp;
 
-import br.com.sgp.model.Usuario;
-import br.com.sgp.model.Projeto;
-import br.com.sgp.model.Equipe;
+import br.com.sgp.dao.*;
+import br.com.sgp.model.*;
+
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Sistema de Gestão de Projetos iniciado...");
-        
-        Usuario gerente = new Usuario("Vinicius Ferreira", "12345678900", "vinicius@email.com", "Gerente", "vinicius", "1234");
-        Projeto projeto = new Projeto("Sistema X", "Sistema para gestão de projetos", "01/10/2025", "31/12/2025", "Planejado", gerente);
-        Equipe equipe = new Equipe("Equipe Alpha", "Equipe de desenvolvimento");
-        
-        equipe.addMembro(gerente);
-        projeto.addEquipe(equipe);
-        
-        System.out.println(projeto);
+        Scanner sc = new Scanner(System.in);
+        UsuarioDAO usuarioDAO = new UsuarioDAO();
+        ProjetoDAO projetoDAO = new ProjetoDAO();
+        EquipeDAO equipeDAO = new EquipeDAO();
+
+        System.out.println("=== Sistema de Gestão de Projetos ===");
+        System.out.println("1 - Cadastrar Usuário");
+        System.out.println("2 - Listar Usuários");
+        System.out.println("0 - Sair");
+
+        int opcao = sc.nextInt();
+        sc.nextLine();
+
+        switch (opcao) {
+            case 1:
+                System.out.print("Nome: ");
+                String nome = sc.nextLine();
+                usuarioDAO.adicionar(new Usuario(nome));
+                System.out.println("Usuário cadastrado!");
+                break;
+            case 2:
+                usuarioDAO.listar().forEach(u -> System.out.println(u.getNome()));
+                break;
+            default:
+                System.out.println("Saindo...");
+        }
     }
 }
